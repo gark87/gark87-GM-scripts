@@ -3,7 +3,7 @@
 // @namespace      http://gark_87.livejournal.com
 // @description    make work with JIRA {code} a little easier
 // @include        *jira*/browse/*-*
-// @version        0.0.1
+// @version        0.0.2
 // ==/UserScript==
 
 // this is about changing `   ' -> ` &nbsp;&nbsp;'
