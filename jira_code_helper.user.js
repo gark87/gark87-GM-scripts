@@ -18,8 +18,8 @@ function keepBlanks(str) {
 }
 
 // constants
-var fold   = '[-]';
-var unfold = '[+]';
+var fold   = '[+]';
+var unfold = '[-]';
 var uniqID = 'gark87';
 var monospace = 'font-family: monospace;';
 
