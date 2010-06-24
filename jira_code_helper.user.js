@@ -21,7 +21,6 @@ function keepBlanks(str) {
 var fold   = '[+]';
 var unfold = '[-]';
 var uniqID = 'gark87';
-var monospace = 'font-family: monospace;';
 
 // any <pre> tag
 var allPre = document.getElementsByTagName('pre');
@@ -31,18 +30,18 @@ for (var i = 0; i < allPre.length; i++) {
       var span = document.createElement('span');
       var id = uniqID + i;   // span id
       span.setAttribute('id', id);
-      span.setAttribute('style', monospace);
+      span.setAttribute('style', 'display:none;');
 
       // button to fold/unfold
       var button = document.createElement('a');
-      button.innerHTML = unfold;
+      button.innerHTML = fold;
 
       // code to fold/unfold
       button.setAttribute('onClick', 
          'if (this.innerHTML == "' + fold + '") {' +
            'this.innerHTML = "' + unfold + '";' +
-           'document.getElementById("' + id + '").setAttribute("style", "' + 
-               monospace+'");'+
+           'document.getElementById("' + id + '").setAttribute("style", ' +
+	     '"font-family: monospace;");'+
          '} else {'+
            'this.innerHTML = "' + fold + '";' +
            'document.getElementById("' + id +
