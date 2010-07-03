@@ -176,6 +176,6 @@ diffview = {
 		node = celt("table", "diff" + (inline ? " inlinediff" : ""));
 		node2 = celt("table", "diff" + (inline ? " inlinediff" : ""));
 		for (var idx in tdata) node.appendChild(tdata[idx]);
-		return [node, node22];
+		return [node, node2];
 	}
 }
