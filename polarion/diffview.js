@@ -28,6 +28,7 @@ ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF S
 DAMAGE.
 ***/
 /* Author: Chas Emerick <cemerick@snowtide.com> */
+/* A little bit changes by gark87 <gark87@mail.ru> */
 diffview = {
 	/**
 	 * Builds and returns a visual diff view.  The single parameter, `params', should contain
@@ -36,10 +37,6 @@ diffview = {
 	 * - baseTextLines: the array of strings that was used as the base text input to SequenceMatcher
 	 * - newTextLines: the array of strings that was used as the new text input to SequenceMatcher
 	 * - opcodes: the array of arrays returned by SequenceMatcher.get_opcodes()
-	 * - baseTextName: the title to be displayed above the base text listing in the diff view; defaults
-	 *	   to "Base Text"
-	 * - newTextName: the title to be displayed above the new text listing in the diff view; defaults
-	 *	   to "New Text"
 	 * - contextSize: the number of lines of context to show around differences; by default, all lines
 	 *	   are shown
 	 * - viewType: if 0, a side-by-side diff view is generated (default); if 1, an inline diff view is
@@ -49,8 +46,6 @@ diffview = {
 		var baseTextLines = params.baseTextLines;
 		var newTextLines = params.newTextLines;
 		var opcodes = params.opcodes;
-		var baseTextName = params.baseTextName ? params.baseTextName : "Base Text";
-		var newTextName = params.newTextName ? params.newTextName : "New Text";
 		var contextSize = params.contextSize;
 		var inline = (params.viewType == 0 || params.viewType == 1) ? params.viewType : 0;
 
@@ -83,16 +78,6 @@ diffview = {
 		var tdata = document.createElement("thead");
 		var node = document.createElement("tr");
 		tdata.appendChild(node);
-		if (inline) {
-			node.appendChild(document.createElement("th"));
-			node.appendChild(document.createElement("th"));
-			node.appendChild(ctelt("th", "texttitle", baseTextName + " vs. " + newTextName));
-		} else {
-			node.appendChild(document.createElement("th"));
-			node.appendChild(ctelt("th", "texttitle", baseTextName));
-			node.appendChild(document.createElement("th"));
-			node.appendChild(ctelt("th", "texttitle", newTextName));
-		}
 		tdata = [tdata];
 		
 		var rows = [];
@@ -193,6 +178,6 @@ diffview = {
 		
 		node = celt("table", "diff" + (inline ? " inlinediff" : ""));
 		for (var idx in tdata) node.appendChild(tdata[idx]);
-		return node;
+		return [node, node];
 	}
 }
