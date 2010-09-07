@@ -2,7 +2,7 @@
 // @name           JIRA process checker
 // @namespace      http://gark_87.livejournal.com
 // @description    Devexperts TosChart process helper
-// @include        https://jira.in.devexperts.com/browse/TC-*
+// @include        *jira.in.devexperts.com/browse/TC-*
 // @version        0.0.1
 // ==/UserScript==
 
