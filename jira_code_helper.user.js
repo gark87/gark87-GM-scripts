@@ -23,10 +23,16 @@ var unfold = '[-]';
 var uniqID = 'gark87';
 
 // any <pre> tag
-var allPre = document.getElementsByTagName('pre');
+var allPre = document.evaluate(
+          "//div[contains(@class,'Content')]//pre",
+          document,
+          null,
+          XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+          null);
 
-for (var i = 0; i < allPre.length; i++) {
-  var thisPre = allPre[i];
+
+for (var i = 0; i < allPre.snapshotLength; i++) {
+  var thisPre = allPre.snapshotItem(i);
   var span = document.createElement('span');
   var id = uniqID + i;   // span id
   span.setAttribute('id', id);
@@ -75,7 +81,8 @@ for (var i = 0; i < allPre.length; i++) {
 }
 
 // remove all <pre>
-for (var i = 0; i < allPre.length;) {
-  var thisPre = allPre[i];
+for (var i = 0; i < allPre.snapshotLength; i++) {
+  var thisPre = allPre.snapshotItem(i);
   thisPre.parentNode.removeChild(thisPre);
 }
+
