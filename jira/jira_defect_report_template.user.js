@@ -2,7 +2,7 @@
 // @name        Template Defect Report
 // @namespace   http://gark_87.livejournal.com
 // @description Template Defect Report
-// @include     *jira*/secure/CreateIssue.jspa?*issuetype=1&Create=Create*
+// @include     *jira*/secure/CreateIssue.jspa?*issuetype=1*
 // @version     1
 // @grant       none
 // ==/UserScript==
